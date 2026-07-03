@@ -1,0 +1,757 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Asap+Condensed:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: 'Manteka Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Manteka Regular'), url('manteka.woff') format('woff');
+    }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+  --primary-bg-color: #efefef;
+  --primary-white-color: #ffffff;
+   --primary-dark-color: #0e0e0e;
+  --hover-effect-color: #b5b5b5;
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-repeat: no-repeat; 
+    background-position: center; 
+    background-size: cover; 
+    background-attachment: fixed;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* ============================================= */
+/*                 LANDING PAGE                  */
+/* ============================================= */
+
+
+body.index {
+    background-image: url('/asset/images/BG.png'); 
+}
+
+body.explore {
+    background-image: url('/asset/images/explore-BG.png');
+}
+
+body.digital {
+    background-image: url('/asset/images/digital-marketing-BG.png');
+    background-attachment: scroll;
+    width: auto;
+    max-height: 599px;
+}
+
+/* Create a semi-transparent dark overlay for better text readability */
+ body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+/* Style the content container to appear above the overlay */
+.landing-page-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    text-align: center;
+    color: var(--primary-white-color);
+}
+
+/* ============================================= */
+/*             NAVBAR STYLING                    */
+/* ============================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 100px;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+    backdrop-filter: blur(5px); /* Optional: Adds a frosted glass effect */
+    z-index: 10;
+}
+
+.navbar .logo {
+    height: 79px;
+    width: 79px;
+}
+
+/* Style the logo container if it is a link */
+.navbar .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Use Flexbox for the list of links */
+.navbar .nav-links {
+    list-style: none; /* Remove bullet points */
+    display: flex;
+    gap: 75px;
+}
+
+/* Style the individual navigation links */
+.navbar .nav-links a {
+    text-decoration: none;
+    color:var(--primary-white-color);
+    font-family: 'Asap Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+/* style.css */
+
+/* Base State (Transparent BG, White Text/Icons) */
+.navbar {
+    transition: all 0.3s ease; /* Smooth transition for everything */
+    background-color: transparent; 
+}
+.navbar .nav-links a {
+    color: white; 
+}
+.navbar .nav-links a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 1rem;
+}
+
+
+/* Scrolled State (White BG, Dark Text/Icons) - JS adds this class */
+.navbar.scrolled {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.navbar.scrolled .nav-links a {
+    color: #112d4e; /* Dark link color */
+}
+.navbar.scrolled .nav-links a:hover {
+    color: #ff9797; /* Scrolled state hover color */
+}
+
+/* ============================================= */
+/*            HAMBURGER ICON STYLING             */
+/* ============================================= */
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 11;
+}
+
+.menu-toggle.scrolled .hamburger-icon {
+  background-color: black;
+}
+
+/* Pseudo-elements for the scrolled state */
+.menu-toggle.scrolled .hamburger-icon::before,
+.menu-toggle.scrolled .hamburger-icon::after {
+  background-color: black;
+}
+
+.hamburger-icon,
+.hamburger-icon::before {
+    display: block;
+    content: '';
+    width: 28px;
+    height: 3px;
+    background-color: var(--primary-white-color);
+    border-radius: 3px;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-icon::before {
+    position: absolute;
+    transform: translateY(-8px); /* Adjust spacing between dashes */
+}
+
+/* Update the centering for the main content area */
+.landing-page-content {
+    /* Use Flexbox for perfect centering */
+    display: flex;
+    justify-content: center; /* Horizontally center content */
+    align-items: center; /* Vertically center content */
+    height: 100vh; /* Make the container span the full viewport height */
+    position: relative; /* Keep this so it stays above the overlay */
+    z-index: 1;
+    color: var(--primary-white-color);
+}
+
+/* Style the content wrapper to be a vertical stack */
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Manteka Regular';
+    font-size: 3.556rem;
+    margin: 50px 0 54px;
+}
+.slide-content:hover,
+.hero-content h1:hover{
+    transform: scale(1.02);
+    transition:ease-in-out 0.3s;
+}
+
+/* Style the call-to-action button */
+.call-to-action-btn {
+    background-color: var(--primary-white-color);
+    color: var(--primary-dark-color);
+    font-family: 'Bebas Neue';
+    font-size: 1.563rem;
+    /* font-weight: bold; */
+    padding: 19px 52px;
+    border: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.call-to-action-btn:hover {
+    background-color: transparent;
+    border: 0.1px solid var(--primary-white-color);
+    color: var(--primary-white-color);
+
+}
+
+/* ============================================= */
+/*               FOOTER STYLING                  */
+/* ============================================= */
+
+.landing-page-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Aligns content to the left */
+    align-items: center;
+    padding: 70px 100px;
+    background-color: transparent; /* No background color */
+    z-index: 9; /* Placed below the navbar */
+}
+
+.footer-links {
+    list-style: none; /* Remove bullet points */
+    display: flex;
+    gap: 37px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--primary-white-color);
+    font-family: 'Asap Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--hover-effect-color);
+}
+
+/* ============================================= */
+/*             EXPLORE PAGE STYLING              */
+/* ============================================= */
+
+.p-mg1 {
+    margin-left: 30px;
+}
+@media (min-width: 1024px) {
+    .explore-page-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 120vh;
+    width: 100%;
+    padding: 100px 50px;
+    color: var(--primary-white-color);
+    position: fixed;
+}
+}
+
+.explore-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    gap: 80px;
+    flex-wrap: wrap;
+    max-width: 1440px;
+    width: 100%;
+}
+
+/* Wrapper for each explorable item */
+.explore-item-wrapper {
+    flex: 1 1 300px;
+    max-width: 330px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+/* Base styling for the explore item itself */
+.explore-item {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 40px;
+    /* text-align: left; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Dulls all items when hovering over the container */
+.explore-container:hover .explore-item-wrapper {
+    opacity: 0.5;
+}
+
+/* Restores full opacity and appearance for the hovered item */
+.explore-container .explore-item-wrapper:hover {
+    opacity: 1;
+}
+
+.explore-container .explore-item-wrapper:hover .explore-item {
+    color: white;
+    border-color: white;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================= */
+/*     HIDE AND SHOW TEXT AND BUTTON ON HOVER    */
+/* ============================================= */
+
+/* Initially hide the paragraph and button */
+.explore-item p,
+.explore-item .explore-btn {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s linear; /* Delay the hiding of visibility */
+}
+
+/* Show the paragraph and button on hover of the parent item */
+.explore-item-wrapper:hover .explore-item p,
+.explore-item-wrapper:hover .explore-item .explore-btn {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.3s linear; /* No delay for showing */
+}
+
+/* Button styling for explore items (restated for clarity) */
+.explore-item .explore-btn, .start-project-btn{
+    background-color: transparent;
+    color: inherit;
+    font-family: 'asap condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 15px 36px;
+    margin-top: 20px;
+    border: 2px solid;
+    border-color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.explore-item .explore-btn:hover, .start-project-btn:hover {
+    background-color: white;
+    color: #000;
+}
+
+/* Adjust the explore-item's flex-direction for better layout without hidden items */
+/* .explore-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+} */
+
+/* Keep the title visible at all times */
+.explore-item h1 {
+    font-size: 2.3rem;
+    font-family: 'Manteka', sans-serif;
+    color: inherit; /* Inherit the color for dull/white state */
+    margin-bottom: 20px;
+}
+
+.explore-item p,
+.p-mg1 {
+    font-family: 'asap condensed', sans-serif;
+}
+
+/* ============================================= */
+/*             DIGITAL MARKETING PAGE STYLING    */
+/* ============================================= */
+
+.digital-marketing-container{
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 50px 20px 0;
+    color: var(--primary-white-color);
+}
+.digital-marketing-content,
+.digital-marketing-services-container {
+   max-width: 680px;
+   margin: 80px auto;
+}
+.digital-marketing-content h1 {
+    font-family: 'asap', sans-serif;
+    font-size: 1.875rem;
+    margin-bottom: 55px;
+}
+.digital-marketing-content p,
+.digital-marketing-services-container p{
+    font-family: 'asap', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+    margin-left: 25px;
+}
+.digital-marketing-sec2{
+    background-color: var(--primary-bg-color);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+.digital-marketing-services-container {
+    padding-top: 150px;
+}
+.digital-marketing-service-item h2{
+    position: relative;
+    font-family: 'asap', sans-serif;
+    font-size: 1.875rem;
+    margin-left: 25px;
+    margin-bottom: 55px;
+}
+
+.digital-marketing-service-item h2::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  width: 120px;
+  height: 2px;
+  right: 100%;
+  top: 50%;
+  background-color: var(--primary-dark-color);
+  margin-right: 12px;
+  vertical-align: middle;
+  transform: translateY(-50%); 
+}
+
+.mg-bt{
+    padding-bottom: 115px;
+}
+
+.another-section-class {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-bg-color);
+}
+
+.digital-marketing-sec-img img {
+    margin-left: auto;
+    margin-right: auto;
+    height: 466px;
+    width: 984px;
+}
+
+.image-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 289px);
+    gap: 23px;
+    max-width: 1224px;
+    margin: 20px auto 275px;
+}
+
+.image-grid-container img {
+    width: 289px;
+    height: 722px;
+    object-fit: cover; 
+}
+
+.digital-marketing-sec3{
+    padding: 103px 20px;
+    max-height: 410px;
+    justify-items: center;
+    text-align: center;
+    background-color: var(--primary-dark-color);
+}
+.have-project-item{
+    max-width: 585px;
+    color: var(--primary-white-color);
+}
+.have-project-item h2{
+    font-family: 'asap', sans-serif;
+    font-size: 1.875rem;
+    margin-bottom: 43px;
+}
+.have-project-item p{
+    font-family: 'asap', sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.875rem;
+    margin-bottom: 35px;
+}
+.have-project-item a {
+    color: #ff9797;
+    text-decoration: none;
+}
+.digital-marketing-page-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    background-color: var(--primary-bg-color);
+    padding: 177px 118px 82px;
+}
+.digital-marketing-page-footer .footer-links a {
+    color: var(--primary-dark-color);
+}
+.digital-marketing-page-footer .footer-links a:hover {
+    color: var(--hover-effect-color);
+}
+
+/* ============================================= */
+/*             ABOUT US PAGE STYLING    */
+/* ============================================= */
+
+
+.slider-main-container {
+    width: 100%;
+    position: relative;
+    font-family: 'Asap', sans-serif;
+}
+
+.slider-wrapper {
+    overflow: hidden; 
+    width: 100%;
+}
+
+.slides-inner-container {
+    display: flex;
+    width: 100vw; 
+    transition: transform 0.7s ease-in-out;
+    transform: translateX(0);
+    margin-bottom: 30px; 
+}
+
+.slide-item {
+    flex-shrink: 0;
+    width: 65vw; 
+    display: flex;
+    justify-content: left; 
+    /* align-items:baseline;  */
+    margin-top: 175px;
+    padding-right: 35px;
+}
+
+.slide-content {
+    
+    margin-left: 242px;
+    width: 70%;
+    /* padding: 40px; */
+    background-color: transparent;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    text-align: left;
+    color: var(--primary-white-color);
+}
+
+.slide-content h2 {
+    font-size: 1.875rem;
+    margin-bottom: 50px;
+
+}
+
+/* --- Navigation Dots Styling --- */
+.slider-nav-dots {
+    position: relative;
+    text-align: left;
+    margin-left: 230px;
+    
+}
+
+.slider-nav-dots::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 120px;
+    height: 2px;
+    top: 50%;
+    background-color: var(--primary-white-color);
+    margin-left: 50px;
+    vertical-align: middle;
+    transform: translateY(50%);
+}
+
+.nav-dot {
+    /* The outer element acts as the transparent circle with the white border */
+    height: 27px; /* Adjust size of the outer circle */
+    width: 27px;  /* Adjust size of the outer circle */
+    background-color: transparent; /* Transparent background */
+    border: 1px solid white; /* White border */
+    border-radius: 50%;
+    display: inline-flex; /* Use flexbox to easily center the inner dot */
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.4; /* Inactive state opacity */
+    transition: all 0.3s ease;
+    position: relative; /* Needed for positioning the inner dot */
+}
+
+/* We use a pseudo-element for the actual solid white dot inside the circle */
+.nav-dot::after {
+    content: '';
+    height: 8px; /* Size of the inner solid dot */
+    width: 8px;  /* Size of the inner solid dot */
+    background-color: white; /* Solid white color */
+    border-radius: 50%;
+    /* Initially hidden or nearly invisible */
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+/* Active state styling: */
+.nav-dot.active {
+    opacity: 1; /* Active state is fully opaque */
+    /* Background remains transparent, border remains white */
+}
+
+/* When the nav-dot is active, show the solid white inner dot */
+.nav-dot.active::after {
+    opacity: 1; 
+}
+
+
+/* ============================================= */
+/*             PORTFOLIO PAGE STYLING    */
+/* ============================================= */
+
+
+/* --- Outer Wrapper: Centers the entire component --- */
+.gallery-wrapper {
+  /* Set max width to contain both rows perfectly: 542px + 54px + 542px = 1138px */
+  max-width: 1138px;
+  margin: 112px auto; 
+  
+}
+
+/* --- Row Container: Defines the 1x2 Grid Structure --- */
+.gallery-row {
+  display: grid; 
+  /* 2 columns, each 542px wide */
+  grid-template-columns: 542px 542px; 
+  /* Single row, 466px high */
+  grid-template-rows: 466px; 
+  /* The 54px gap ONLY between the left and right items */
+  gap: 54px; 
+}
+
+/* --- Vertical Separation --- */
+.gallery-row-bottom {
+  /* This creates the space between the top row and the bottom row.
+     You can change 54px to any margin you need! */
+  margin: 360px auto; 
+}
+
+
+/* --- Grid Item: Stacked Layout (Inherited Fix from previous step) --- */
+.grid-item {
+  display: flex; 
+  flex-direction: column; 
+  width: 100%; /* 542px */
+  height: 100%; /* 466px */
+}
+
+/* --- Image Styling --- */
+.grid-item img {
+  width: 100%; 
+  flex-grow: 1; /* Fills the remaining space */
+  object-fit: cover; 
+  display: block;
+  background-color: aqua;
+}
+
+/* --- Text Content Styling --- */
+.grid-item .text-content {
+    font-family: 'asap', sans-serif;
+    flex-shrink: 0; /* Shrinks to fit content */
+    padding: 10px; 
+    background-color: var(--primary-bg-color); 
+}
+
+/* Text elements styling (optional, for cleanup) */
+.grid-item .text-content h3 { 
+    margin: 50px auto 40px;
+    font-size: 1.875rem;
+    font-weight: bold;
+}
+
+.grid-item .text-content p {
+    font-size: 1.125rem;
+    width: 90%;
+}
+
+hr {
+    display: block;
+  /* 1. Reset Browser Defaults */
+  border: none;
+  
+  /* 2. Set appearance */
+  height: 1px; /* The thickness of the line */
+  background-color: var(--primary-dark-color); /* A light, soft color for separation */
+  
+  /* 3. Control position and length */
+  width: 100%; /* Makes it 80% of its container width */
+  margin: 450px auto 210px; /* Adds vertical space and centers it horizontally */
+}
