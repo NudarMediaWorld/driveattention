@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const initialLogoSrc = "asset/images/logo-white.svg";
-    const scrolledLogoSrc = "/asset/images/logo-black.svg";
+    const scrolledLogoSrc = "asset/images/logo-black.svg";
 
     const observerOptions = {
         root: null, // viewport
