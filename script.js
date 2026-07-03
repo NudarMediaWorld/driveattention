@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const initialLogoSrc = "/asset/images/logo-white.svg";
+    const initialLogoSrc = "asset/images/logo-white.svg";
     const scrolledLogoSrc = "/asset/images/logo-black.svg";
 
     const observerOptions = {

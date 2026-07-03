@@ -59,15 +59,15 @@ select {
 
 
 body.index {
-    background-image: url('/asset/images/BG.png'); 
+    background-image: url('asset/images/BG.png'); 
 }
 
 body.explore {
-    background-image: url('/asset/images/explore-BG.png');
+    background-image: url('asset/images/explore-BG.png');
 }
 
 body.digital {
-    background-image: url('/asset/images/digital-marketing-BG.png');
+    background-image: url('asset/images/digital-marketing-BG.png');
     background-attachment: scroll;
     width: auto;
     max-height: 599px;
